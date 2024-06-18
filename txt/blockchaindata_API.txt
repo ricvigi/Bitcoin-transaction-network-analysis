@@ -1,0 +1,49 @@
+Single Block
+    https://blockchain.info/rawblock/$block_hash -> JSON
+        You can also request the block to return in binary form (Hex encoded) using ?format=hex
+
+Single Transaction
+    https://blockchain.info/rawtx/$tx_hash -> JSON
+        You can also request the transaction to return in binary form (Hex encoded) using ?format=hex
+
+Chart Data
+    https://blockchain.info/charts/$chart-type?format=json -> JSON
+
+Block Height
+    https://blockchain.info/block-height/$block_height?format=json -> JSON
+
+Single Address
+    https://blockchain.info/rawaddr/$bitcoin_address -> JSON
+    Address can be base58 or hash160
+    Optional limit parameter to show n transactions e.g. &limit=50 (Default: 50, Max: 50)
+    Optional offset parameter to skip the first n transactions e.g. &offset=100 (Page 2 for limit 50)
+
+Multi Address
+    https://blockchain.info/multiaddr?active=$address|$address -> JSON
+    Multiple Addresses Allowed separated by "|"
+    Address can be base58 or xpub
+    Optional limit parameter to show n transactions e.g. &n=50 (Default: 50, Max: 100)
+    Optional offset parameter to skip the first n transactions e.g. &offset=100 (Page 2 for limit 50)
+
+Unspent Outputs
+    https://blockchain.info/unspent?active=$address -> JSON
+    Multiple Addresses Allowed separated by "|"
+    Address can be base58 or xpub
+    Optional limit parameter to show n transactions e.g. &limit=50 (Default: 250, Max: 1000)
+    Optional confirmations parameter to limit the minimum confirmations e.g. &confirmations=6
+    """The tx hash is in reverse byte order. What this means is that in order to get the html transaction hash from the JSON tx hash for the following transaction, you need to decode the hex. This will produce a binary output, which you need to reverse (the last 8bits/1byte move to the front, second to last 8bits/1byte needs to be moved to second, etc.). Then once the reversed bytes are decoded, you will get the html transaction hash."""
+
+Balance
+    https://blockchain.info/balance?active=$address -> JSON
+    Multiple Addresses Allowed separated by "|"
+    Address can be base58 or xpub
+
+Latest Block
+    https://blockchain.info/latestblock -> JSON
+
+Unconfirmed Transactions
+    https://blockchain.info/unconfirmed-transactions?format=json -> JSON
+
+Blocks
+    Blocks for one day: https://blockchain.info/blocks/$time_in_milliseconds?format=json -> JSON
+    Blocks for specific pool: https://blockchain.info/blocks/$pool_name?format=json -> JSON

@@ -1,0 +1,3 @@
+possible double spending transactions:
+    278f9e6e7ca5cfffe009e4590e497e0cc74dff5769b40de67341fcf55178c137
+    from block: 000000000000000022476a3e8edfb86ba1998a309749d3f265034d150db0b38f

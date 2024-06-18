@@ -1,0 +1,42 @@
+python -m venv btcenv
+
+git clone https://github.com/bitcoin/bitcoin.git
+
+cd bitcoin
+
+git tag # to see all the available builds
+
+git checkout v27.0
+
+git status
+
+more README.md
+more doc/build-unix.md
+
+sudo pacman --sync --needed autoconf automake boost gcc git libevent libtool make pkgconf python sqlite
+
+./autogen.sh # start the building process
+
+./configure --help # The configure script allows you to enable or disable certain features of bitcoind through the use of the --ennable-FEATURE and --disable-FEATURE flags, where FEATURE is replaced by the feature name, as listed in the help output.
+
+./configure --prefix=$HOME/Ri/SecondYear/2ndSemester/DMAU2/project/local --with-gui=no # --prefix=$PATH overrides the default installation location (which is /usr/local) for the resulting executable. Use $PATH to put everything in a specified PATH directory. --with-gui=no does not build the graphical user interface, which requires the Qt library. This builds server and command-line bitcoin only.
+
+make # Next, we will compile the source code. This can take up to hours, depending on the speed of the CPU and the amount of available memory. During the compilation process one should see output every few seconds of every few minutes, or an error if something goes wrong. If an error occurs, or the compilation process is interrupted, it can be resumed any time by typing *make* again.
+
+#####################################
+The choice of installing a binary version of the software is not casual. Bitcoin's peer-to-peer network is composed of network "nodes". Those running bitcoin nodes have a direct and auhoritative view of the bitcoin blockchain, with a local copy of all the transaction, but most importantly these transactions are independently validated by their own system. By running a node, you don't have to rely on any third party to validate a transaction.
+######################################
+
+bitcoind --help # Bitcoin Core offers more than 100 configuration options that modify the behavior of the network node, the storage of the blockchain, and many other aspects of its operation. These configurations can be set in the configuration file in ~/.bitcoin/bitcoin.conf
+
+
+bitcoind -printtoconsole # Once you've edited the configuration file, you can test bitcoind with this configuration. Run Bitcoin Core in the foreground with output to the console
+
+bitcoind -daemon # This is to run Bitcoin Core in the background as a process.
+
+bitcoin.cli getinfo # To monitor the progress and runtime status of your bitcoin node
+
+bitcoin-cli getblockhash <block_number> # get the hash of block number *block_number*
+bitcoin-cli getrawtransaction <txid> true <block_hash> # you have to specify both the transaction id and the block hash for this to work
+
+

@@ -1,0 +1,3 @@
+# these commands have escape characters in them
+curl https://blockchain.info/rawtx/$tx_hash | jq . # get a transaction by its hash id and return it as a JSON object
+curl https://blockchain.info/rawtx/$tx_hash\?format=hex # get a transaction by its hash id and return the hex encoding

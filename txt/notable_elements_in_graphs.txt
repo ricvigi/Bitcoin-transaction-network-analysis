@@ -1,0 +1,5 @@
+Look for:
+    Clique
+    Trees
+    Star Graphs
+    Ring Graph

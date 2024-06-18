@@ -1,0 +1,9 @@
+bitcoin/
+local/
+**/.Rhistory
+**/.RData
+**/*.csv
+**/*.json
+**/scrape.py
+**/__pycache__
+blocks/

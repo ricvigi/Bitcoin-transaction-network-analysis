@@ -7,3 +7,4 @@ local/
 **/scrape.py
 **/__pycache__
 blocks/
+pdf
